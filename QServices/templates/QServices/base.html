@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en"  >
+<head>
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home page</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="{% static 'QServices/js/script.js' %}" ></script>
+
+</head>
+<body class="bg-gray-100 font-sans ">
+<header class="bg-blue-50 ">
+     <div class="container mx-auto flex justify-between items-center py-6 px-6" >
+     <h1 class="text-xl  font-bold">AquaPure Solutions</h1>
+    <nav >
+       <ul class="flex space-x-4">
+           <li><a href="#" class="hover:text-gray-200"> login</a></li>
+           <li><a href="#" class="hover:text-gray-200" >signin</a> </li>
+           <li><a href="#" class="hover:text-gray-200" >help</a> </li>
+       </ul>
+    </nav>
+     </div>
+    <div  class="bg-blue-500 py-3 px-12 text-white  sticky top-0">
+        <nav >
+       <ul class="flex space-x-4">
+           <li><a href="#" class="hover:underline"> home</a></li>
+           <li><a href="#" class="hover:underline" >Products</a> </li>
+           <li><a href="#" class="hover:underline" >Services</a> </li>
+           <li><a href="#" class="hover:underline" >Books</a> </li>
+           <li><a href="#" class="hover:underline" >contact</a> </li>
+           <li><a href="#" class="hover:underline" >who us</a> </li>
+       </ul>
+    </nav>
+    </div>
+                             <!-- خلفية تحت القوائم -->
+    <div class=" bg-cover bg-center  h-58 rounded-lg  " style="background-image:url('static/images/istockphoto-1.jpg'); background-position:center 30%;"  >
+        <div class="relative  h-32 w-82 " >
+            <div class="absolute top-6 left-4 text-white text-left px-8 ">
+                <h2 class="text-2xl">Future Technology</h2>
+               <p>Smart Water Purification Solutions</p>
+            </div>
+            <div class="absolute top-15  left-[900px] right-20 text-white text-left w-[500px]">
+             <h3 class="text-xl"> Why Choose Us </h3>
+            <p class="whitespace-normal">10+ years of expertise</p>
+            </div>
+
+        </div>
+
+    </div>
+</header>
+<main>
+{% block content %}
+
+    {% endblock %}
+
+</main>
+<footer>
+
+
+</footer>
+
+
+</body>
+</html>

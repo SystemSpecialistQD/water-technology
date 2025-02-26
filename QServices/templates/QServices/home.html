@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<main>
+                    <!-- main content section-->
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-2 mb-8" >
+                         <!-- العمود الاول -->
+
+                <!--    <div class="lg:col-span-3 spacy-6">
+                        {% for service in services  %}
+                        <div class="bg-white p-4 ">
+                        <h3 class="text-lg font-semibold mt-2"> {{ service.title }}</h3>
+                        <p class="text-gray-600 text-sm line-clamp-3 hover:bg-blue-50 hover:line-clamp-none focus:line-clamp-none" id="description-{{service.id}}" >{{ service.description }}</p>
+                            <button onclick="toggleContent({{service.id}})" class="bg-blue-400   text-white px-2 py-2 hover:underline mt-2">Read More</button>
+                      </div>
+                      <div class="bg-white p-4 ">
+                        <img src="{{ service.image }}" class="h-full w-48 object-cover">
+                      </div>
+
+                        {% endfor %}
+
+                     </div> -->
+               <div class="lg:col-span-3 space-y-6">
+        {% for service in services %}
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg hover:bg-blue-100 transition-shadow">
+            <img src="{{ service.image }}" alt="{{ service.title }}" class="h-full w-48 object-cover rounded-t-lg">
+            <h3 class="text-lg font-semibold mt-4 text-gray-800">{{ service.title }}</h3>
+            <!-- text-gray-600 mt-2 text-justify   -->
+            <p class="line-clamp-3 "
+               id="description-{{service.id}}">{{ service.description }}</p>
+            <button onclick="toggleContent({{service.id}})" class="text-blue-600 hover:text-blue-800  mt-2 font-medium">
+                عرض المزيد →
+            </button>
+        </div>
+        {% endfor %}
+                    <div>
+             <a href="{% url 'services_page' %}" >
+                 عرض المزيد من المنتجات
+             </a>
+
+            </div>
+    </div>
+
+
+
+                                     <!-- العمود الثاني -->
+                      <!-- <div class="lg:col-span-5 ">
+                        {% for product in products  %}
+
+                          <div class="grid grid-cols-2 p-2 ">
+
+                             <div class="bg-white p-1 ">
+                              <img src="{{ product.image1 }}" class="w-full h-48 object-cover">
+                              </div>
+                              <div class="bg-white p-1 ">
+                             <img src="{{ product.image2 }}" class="w-full h-48 object-cover">
+                             </div>
+                          </div>
+                         <div class="bg-white p-4 ">
+                          <h3 class="text-x1 font-semibold ">{{ product.title }}</h3>
+                           <p class="text-gray-700">{{ product.description }}</p>
+                         </div>
+                        {% endfor %}
+
+                    </div> -->
+                  <div class="lg:col-span-5">
+        {% for product in products %}
+        <div class="bg-white rounded-lg shadow-md mb-6 overflow-hidden">
+            <div class="grid grid-cols-2 gap-4 p-4">
+                <img src="{{ product.image1 }}" alt="Product Image 1" class="w-full h-48 object-cover rounded">
+                <img src="{{ product.image2 }}" alt="Product Image 2" class="w-full h-48 object-cover rounded">
+            </div>
+            <div class="p-6 border-t">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">{{ product.title }}</h3>
+                <p class="text-gray-600 leading-relaxed">{{ product.description }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+                                     <!-- العمود الثالث -->
+
+                  <div class="lg:col-span-1 bg-white w-full p-1 ">
+                        <img src="{% static 'images/arabs-stock.jpg' %}" class="w-32 h-32 rounded-full p-1 ">
+
+                    </div>
+
+            <!-- <div class="col-span-2 space-y-6">
+                <div class="bg-white p-4 shadow-md">
+                    <h3 class="text-x1 font-semibold ">about our service</h3>
+                    <p class="text-gray-700">Lorem ipsum dolor sit amet, Cras et nisi nec lorem commodo cursus</p>
+                </div>
+                <div class="grid grid-cols-2 gap-4">-->
+                    <!-- Service card  -->
+            <!--
+                    <div class="bg-white p-4 shadow-md">
+                        <img css="static/image/arabs-stock.jpg" class="w-full h-48 object-cover">
+                        <h4 class="text-lg font-semibold mt-2">service 1</h4>
+                        <p class="text-gray-600 text-sm">brief description of service 1</p>
+                    </div>
+                    <div class="bg-white p-4 shadow-md">
+                        <img css="static/image/arabs-stock.jpg" class="w-full h-48 object-cover">
+                        <h4 class="text-lg font-semibold mt-2">service 2</h4>
+                        <p class="text-gray-600 text-sm">brief description of service 2</p>
+                    </div>
+                </div>
+            </div>  -->
+
+                                 <!-- sidebar --> <!-- العمود الرابع  -->
+
+        <!-- <div class="col-span-2   ">
+           <aside class="bg-blue-500 p-4 rounded h-full">
+
+                 <div class=" p-5 ">
+                     {% for book in books %}
+                      <h2>{{book.title}}</h2>
+                      <img src="{{book.image}}" class="w-20 h-32 p-1 object-cover overflow-hidden ">
+                      <h3>{{book.author }}</h3>
+                      <a href="{{book.file}}" >Read now</a>
+
+                     {% endfor %}
+
+                    </div>
+
+           </aside>
+          </div>-->
+              <aside class="lg:col-span-3">
+        <div class="bg-white p-6 rounded-lg shadow-md sticky top-4">
+            {% for book in books %}
+            <div class="bg-white p-4 shadow-md rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-x1 hover:bg-blue-200 flex flex-col items-center text-center">
+                <a href="{{ book.file }}" class="text-blue-600 hover:text-blue-800 ">
+                <img src="{{ book.image }}" alt="{{ book.title }}" class="w-40 h-full object-cover rounded mb-3">
+                <h4 class="font-semibold text-gray-800">{{ book.title }}</h4>
+                <p class="text-sm text-gray-600 mb-2">بواسطة {{ book.author }}</p>
+                    اقرأ الآن
+                   <!-- <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>-->
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </aside>
+
+        </div>
+
+
+
+</main>
+
+{% endblock %}
